@@ -16,16 +16,27 @@
 
 package lk.ac.mrt.cse.dbs.simpleexpensemanager.control;
 
+import android.content.Context;
+import android.widget.Button;
+import android.widget.EditText;
+
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.AccountDAO;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.TransactionDAO;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.impl.InMemoryAccountDAO;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.impl.InMemoryTransactionDAO;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Account;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.ui.DatabaseHandler;
 
 /**
  *
  */
 public class InMemoryDemoExpenseManager extends ExpenseManager {
+
+    private EditText accountNo,bankNo,holderName,Amount;
+    private Button save;
+    private DatabaseHandler db;
+    private Context context;
+
 
     public InMemoryDemoExpenseManager() {
         setup();
@@ -45,6 +56,7 @@ public class InMemoryDemoExpenseManager extends ExpenseManager {
         Account dummyAcct1 = new Account("12345A", "Yoda Bank", "Anakin Skywalker", 10000.0);
         Account dummyAcct2 = new Account("78945Z", "Clone BC", "Obi-Wan Kenobi", 80000.0);
         getAccountsDAO().addAccount(dummyAcct1);
+
         getAccountsDAO().addAccount(dummyAcct2);
 
         /*** End ***/

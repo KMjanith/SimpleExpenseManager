@@ -53,8 +53,8 @@ public interface AccountDAO {
 
     /***
      * Add an account to the accounts collection.
+     *  @param account - the account to be added.
      *
-     * @param account - the account to be added.
      */
     public void addAccount(Account account);
 

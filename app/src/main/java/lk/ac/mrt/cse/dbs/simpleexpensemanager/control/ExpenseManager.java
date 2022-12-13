@@ -16,6 +16,8 @@
 
 package lk.ac.mrt.cse.dbs.simpleexpensemanager.control;
 
+import android.content.Context;
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
@@ -34,8 +36,10 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Transaction;
  * method to setup the DAO objects depending on the implementation.
  */
 public abstract class ExpenseManager implements Serializable {
+
     private AccountDAO accountsHolder;
     private TransactionDAO transactionsHolder;
+    private Context context;
 
     /***
      * Get list of account numbers as String.
@@ -97,15 +101,21 @@ public abstract class ExpenseManager implements Serializable {
      *
      * @return
      */
+
     public AccountDAO getAccountsDAO() {
-        return accountsHolder;
+        return  accountsHolder;
     }
+
+
 
     /***
      * Set the concrete AccountDAO implementation.
      *
      * @param accountDAO
      */
+
+
+
     public void setAccountsDAO(AccountDAO accountDAO) {
         this.accountsHolder = accountDAO;
     }
